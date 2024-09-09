@@ -1,0 +1,137 @@
+<link rel="import" href="../bower_components/polymer/polymer-element.html" />
+
+<script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/gh/codebydaud/react-components-host/daud/my-components-tailwind-v2.umd.js"></script>
+
+
+<dom-module id="my-view4">
+  <template>
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
+    <style include="shared-styles">
+      :host {
+        display: block;
+
+        padding: 10px;
+      }
+      .image-container {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      img {
+        max-width: 100%;
+        width: 20%;
+        height: auto;
+        border-radius: 8px;
+      }
+
+      .recipe-title {
+        display: flex;
+        justify-content: center;
+      }
+      .recipe-title h1 {
+        color: black;
+        font-size: 100%;
+      }
+      .recipe-price-and-servings {
+        display: flex; /* Use Flexbox for alignment */
+        justify-content: space-between; /* Space out price and status */
+        align-items: center; /* Center vertically */
+        margin-top: 10px;
+      }
+
+      .recipe-price-and-servings h1 {
+        color: black;
+        font-size: 80%;
+      }
+
+      .status {
+        font-size: 80%;
+        color: #06bb60; /* Example color for status */
+      }
+      /* button {
+        background-color: #06bb60;
+        color: white;
+        padding: 5px 5px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 80%;
+      }
+
+      button:hover {
+        background-color: #05964d;
+      } */
+    </style>
+    <template is="dom-repeat" items="{{recipes}}">
+      <div class="card">
+        <div class="circle">{{item.dealName}}</div>
+        <div class="image-container">
+          <img src="{{item.imageUrl}}" alt="Description of the image" />
+        </div>
+        <div class="recipe-title">
+          <!-- <h1>{{item.title}}</h1> -->
+          <recipe-title name={{item.title}}></recipe-title>
+        </div>
+        <div class="recipe-price-and-servings">
+          <h1>Price : {{item.price}}</h1>
+          <span class="status">{{item.status}}</span>
+          <!-- <h1>Servings : 1</h1> -->
+        </div>
+        <div class="recipe-price-and-servings">
+          <h1>Servings : {{item.servings}}</h1>
+          <details-button name="Details"></-button>
+        </div>
+      </div>
+    </template>
+  </template>
+  <script>
+    class MyView4 extends Polymer.Element {
+      static get is() {
+        return "my-view4";
+      }
+      handleClick() {
+        console.log("Button clicked!");
+      }
+      static get properties() {
+        return {
+          recipes: {
+            type: Array,
+            value: () => [
+              {
+                title: "Zinger Burger",
+                price: "$1000",
+                servings: "1",
+                status: "Available",
+                imageUrl: "src/assets/images/burger.png",
+                dealName: "Summer Deal",
+              },
+              {
+                title: "Chicken Sandwich",
+                price: "$800",
+                servings: "1",
+                status: "Available",
+                imageUrl: "src/assets/images/sandwich.png",
+                dealName: "Winter Deal",
+              },
+              {
+                title: "Chicken Pizza",
+                price: "$1500",
+                servings: "1",
+                status: "Available",
+                imageUrl: "src/assets/images/pizza.png",
+                dealName: "Cricket Deal",
+              },
+            ],
+          },
+        };
+      }
+    }
+
+    customElements.define(MyView4.is, MyView4);
+  </script>
+</dom-module>
