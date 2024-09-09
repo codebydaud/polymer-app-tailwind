@@ -1,19 +1,19 @@
 <link rel="import" href="../bower_components/polymer/polymer-element.html">
-<link rel="import" href="shared-styles.html">
+
+<script src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
+
+<script src="my-components.umd.js"></script>
 
 <dom-module id="my-view1">
   <template>
-    <style include="shared-styles">
-      :host {
-        display: block;
-        padding: 10px;
-      }
-      
-    </style>
+    <!-- Tailwind Link -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
 
-    <div class="card">
-      <div class="circle">1</div>
-      <h1>View One</h1>
+    <p class="text-red-800 text-center">Name Card</p>
+    <name-card name="Daud"></name-card>
+    <div class="w-1/4 px-16 py-8 rounded-md bg-green-600 text-white text-center font-bold text-xl shadow-lg">
+      hello
     </div>
   </template>
 

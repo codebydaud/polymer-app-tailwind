@@ -1,15 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import reactToWebComponent from "react-to-webcomponent";
-import RecipeTitle from "./components/RecipeTitle";
-import DetailsButton from "./components/DetailsButton";
+import NameCard from "./components/NameCard";
 
-const RecipeTitleWC = reactToWebComponent(RecipeTitle, React, ReactDOM, {
-  props: ["name"],
-});
-const DetailsButtonWC = reactToWebComponent(DetailsButton, React, ReactDOM, {
+const NameCardWC = reactToWebComponent(NameCard, React, ReactDOM, {
   props: ["name"],
 });
 
-customElements.define("recipe-title", RecipeTitleWC);
-customElements.define("details-button", DetailsButtonWC);
+customElements.define("name-card", NameCardWC);
