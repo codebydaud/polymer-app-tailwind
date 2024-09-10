@@ -1,10 +1,10 @@
-import React from "react";
-import ReactDOM from "react-dom";
-import reactToWebComponent from "react-to-webcomponent";
-import NameCard from "./components/NameCard";
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+import reactToWebComponent from '@r2wc/react-to-web-component';
+import TextField from './components/TextField';
 
-const NameCardWC = reactToWebComponent(NameCard, React, ReactDOM, {
-  props: ["name"],
+const TextFieldWC = reactToWebComponent(TextField, {
+  props: {label: "string", type: "string", name: "string", newValue: "string", onValueChange: "function", placeholder: "string"},
 });
 
-customElements.define("name-card", NameCardWC);
+customElements.define('text-field', TextFieldWC);

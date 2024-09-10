@@ -8,7 +8,7 @@ export default defineConfig({
     lib: {
       entry: "./src/index.js",
       name: "MyComponents",
-      fileName: (format) => `my-components.${format}.js`,
+      fileName: (format) => `textfield.${format}.js`,
       formats: ["umd"],
     },
     rollupOptions: {
